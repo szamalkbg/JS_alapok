@@ -3,6 +3,7 @@ window.addEventListener("load", function () {
     elemekElerese2();
     elemekElerese3();
     elemekElerese4();
+    esemenyKezelo4();
 });
 
 function elemekElerese1() {
@@ -20,12 +21,27 @@ function elemekElerese3() {
     ELEM3.innerHTML = "<p>Jó reggelt!</p>"
 }
 function elemekElerese4() {
-    const ELEM4=document.querySelectorAll("lista")[0]
-    let txt = "<ul>"
-    let veletlenszam = Math.floor(Math.random() * (31 - 10 + 1)) + 10;
-    for (let i=0; i < 5; i++) {
-        txt += "<li>"+veletlenszam+"</li>";
+    const ELEM4 = document.querySelectorAll(".lista")[0];
+    let txt = "<ul>";
+    for (let i = 0; i < 5; i++) {
+        let veletlenszam = Math.floor(Math.random() * (31 - 10 + 1)) + 10;
+        txt += "<li>" + veletlenszam + "</li>";
     }
-    txt='</ul>'
-    ELEM4.innerHTML=txt
+    txt += "</ul>";
+    ELEM4.innerHTML = txt;
+    
+}
+function elemekKezelese1() {
+    const listaElem = document.getElementById('lista');
+    listaElem.classList.add('formazott');
+}
+function esemenyKezelo4() {
+    const tarolo = document.querySelector('.tarolo');
+    const elemek = taroloElem.querySelectorAll('.elem');
+    for (const elem of elemek) {
+        elem.addEventListener('click', function(event) {
+            const eredmenyDiv = document.querySelector('.megjelenito');
+            eredmenyDiv.textContent = event.target.textContent;
+        });
+    }
 }
